@@ -27,7 +27,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="CPF">CPF:</label>
-                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 123.456.789-10" maxlength="14" >
+                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 123.456.789-10" maxlength="14">
             </div>
         </div>
     </div>
@@ -80,6 +80,12 @@
                 <input required="required" type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2020-3030" maxlength="15">
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>&nbsp;</label>
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#beneficiariosModal">Beneficiários</button>
+            </div>
+        </div>
     </div>
 
     <div class="row">
@@ -93,3 +99,87 @@
 
 
 </form>
+
+
+<!-- Modal para Beneficiários -->
+<div class="modal fade" id="beneficiariosModal" tabindex="-1" role="dialog" aria-labelledby="beneficiariosModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="beneficiariosModalLabel">Beneficiários</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Linha para CPF, Nome do Beneficiário e Botão Incluir -->
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="BeneficiarioCPF">CPF:</label>
+                            <input type="text" class="form-control" id="BeneficiarioCPF" placeholder="999.999.999-99" maxlength="14">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="BeneficiarioNome">Nome do Beneficiário:</label>
+                            <input type="text" class="form-control" id="BeneficiarioNome" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label>&nbsp;</label> <!-- Label vazio para alinhar com os campos -->
+                        <button type="button" class="btn btn-sm btn-success" id="addBeneficiarioBtn">Incluir</button>
+                    </div>
+                </div>
+
+                <!-- Linha de Separação -->
+                <hr>
+
+                <div id="beneficiariosList">
+                    <!-- Primeira Linha Mocada de Exemplo -->
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>123.456.789-10</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>João da Silva</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center">
+                            <!-- Colocar os botões na mesma linha com d-flex -->
+                            <button type="button" class="btn btn-sm btn-primary mr-1">Alterar</button>
+                            <button type="button" class="btn btn-sm btn-primary">Excluir</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Linha de Separação -->
+                <hr>
+
+                <!-- Segunda Linha Mocada de Exemplo -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>987.654.321-00</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Maria Oliveira</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center">
+                        <button type="button" class="btn btn-sm btn-primary editBeneficiarioBtn mr-1">Alterar</button>
+                        <button type="button" class="btn btn-sm btn-primary deleteBeneficiarioBtn">Excluir</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

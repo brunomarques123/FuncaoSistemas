@@ -53,30 +53,30 @@ namespace FI.AtividadeEntrevista.DAL
             return cli.FirstOrDefault();
         }
 
-        //internal bool VerificarExistencia(string CPF)
-        //{
-        //    List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
-
-        //    parametros.Add(new System.Data.SqlClient.SqlParameter("CPF", CPF));
-
-        //    DataSet ds = base.Consultar("FI_SP_VerificaCliente", parametros);
-
-        //    return ds.Tables[0].Rows.Count > 0;
-        //}
-
         internal bool VerificarExistencia(string CPF)
         {
-            List<SqlParameter> parametros = new List<SqlParameter>();
+            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
-            // Adicionar o parâmetro CPF à lista de parâmetros
-            parametros.Add(new SqlParameter("@CPF", CPF));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("CPF", CPF));
 
-            // Chamar o método Consultar com o nome da stored procedure e os parâmetros
             DataSet ds = base.Consultar("FI_SP_VerificaCliente", parametros);
 
-            // Retornar verdadeiro se o CPF existir
             return ds.Tables[0].Rows.Count > 0;
         }
+
+        //internal bool VerificarExistencia(string CPF)
+        //{
+        //    List<SqlParameter> parametros = new List<SqlParameter>();
+
+        //    // Adicionar o parâmetro CPF à lista de parâmetros
+        //    parametros.Add(new SqlParameter("@CPF", CPF));
+
+        //    // Chamar o método Consultar com o nome da stored procedure e os parâmetros
+        //    DataSet ds = base.Consultar("FI_SP_VerificaCliente", parametros);
+
+        //    // Retornar verdadeiro se o CPF existir
+        //    return ds.Tables[0].Rows.Count > 0;
+        //}
 
 
         internal List<Cliente> Pesquisa(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, out int qtd)
