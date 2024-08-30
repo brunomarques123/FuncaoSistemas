@@ -1,185 +1,231 @@
 ﻿
-<form id="formCadastro" method="post">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="Nome">Nome:</label>
-                <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="50">
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Sobrenome">Sobrenome:</label>
-                <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: da Silva" maxlength="255">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Nacionalidade">Nacionalidade:</label>
-                <input required="required" type="text" class="form-control" id="Nacionalidade" name="Nacionalidade" placeholder="Ex.: brasileira" maxlength="50">
-            </div>
-        </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Suas tags de meta, link para CSS, etc. -->
+    <link rel="stylesheet" href="caminho-para-seu-css.css">
+    <!-- Inclua outros recursos aqui, como bibliotecas JavaScript se necessário -->
+</head>
+<body>
 
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="CPF">CPF:</label>
-                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 123.456.789-10" maxlength="14">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="CEP">CEP:</label>
-                <input required="required" type="text" class="form-control" id="CEP" name="CEP" placeholder="Ex.: 01011-100" maxlength="9">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="Estado">Estado:</label>
-                <select required="required" id="Estado" class="form-control" name="Estado">
-                    <option value="">Selecione</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="PE">Pernambuco</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="Cidade">Cidade:</label>
-                <input required="required" type="text" class="form-control" id="Cidade" name="Cidade" maxlength="50" placeholder="Ex.: São Paulo">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="Logradouro">Logradouro:</label>
-                <input required="required" type="text" class="form-control" id="Logradouro" name="Logradouro" placeholder="Ex.: Rua Boa Vista 253" maxlength="500">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Email">E-mail:</label>
-                <input required="required" type="text" class="form-control" id="Email" name="Email" placeholder="Ex.: email@email.com" maxlength="2079">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Telefone">Telefone:</label>
-                <input required="required" type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2020-3030" maxlength="15">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>&nbsp;</label>
-                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#beneficiariosModal">Beneficiários</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="pull-right">
-                <button type="submit" class="btn btn-sm btn-success">Salvar</button>
-                @Html.ActionLink("Voltar", "Index", "Cliente", new { }, new { @class = "btn btn-sm btn-danger" })
-            </div>
-        </div>
-    </div>
-
-
-</form>
-
-
-<!-- Modal para Beneficiários -->
-<div class="modal fade" id="beneficiariosModal" tabindex="-1" role="dialog" aria-labelledby="beneficiariosModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="beneficiariosModalLabel">Beneficiários</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Linha para CPF, Nome do Beneficiário e Botão Incluir -->
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="BeneficiarioCPF">CPF:</label>
-                            <input type="text" class="form-control" id="BeneficiarioCPF" placeholder="999.999.999-99" maxlength="14">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="BeneficiarioNome">Nome do Beneficiário:</label>
-                            <input type="text" class="form-control" id="BeneficiarioNome" maxlength="50">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <label>&nbsp;</label> <!-- Label vazio para alinhar com os campos -->
-                        <button type="button" class="btn btn-sm btn-success" id="addBeneficiarioBtn">Incluir</button>
-                    </div>
+    <form id="formCadastro" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="Nome">Nome:</label>
+                    <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="50">
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Sobrenome">Sobrenome:</label>
+                    <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: da Silva" maxlength="255">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Nacionalidade">Nacionalidade:</label>
+                    <input required="required" type="text" class="form-control" id="Nacionalidade" name="Nacionalidade" placeholder="Ex.: brasileira" maxlength="50">
+                </div>
+            </div>
 
-                <!-- Linha de Separação -->
-                <hr>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="CPF">CPF:</label>
+                    <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 123.456.789-10" maxlength="14">
+                </div>
+            </div>
+        </div>
 
-                <div id="beneficiariosList">
-                    <!-- Primeira Linha Mocada de Exemplo -->
-                    <div class="row mb-3">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>123.456.789-10</label>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="CEP">CEP:</label>
+                    <input required="required" type="text" class="form-control" id="CEP" name="CEP" placeholder="Ex.: 01011-100" maxlength="9">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="Estado">Estado:</label>
+                    <select required="required" id="Estado" class="form-control" name="Estado">
+                        <option value="">Selecione</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="PE">Pernambuco</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="Cidade">Cidade:</label>
+                    <input required="required" type="text" class="form-control" id="Cidade" name="Cidade" maxlength="50" placeholder="Ex.: São Paulo">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="Logradouro">Logradouro:</label>
+                    <input required="required" type="text" class="form-control" id="Logradouro" name="Logradouro" placeholder="Ex.: Rua Boa Vista 253" maxlength="500">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Email">E-mail:</label>
+                    <input required="required" type="text" class="form-control" id="Email" name="Email" placeholder="Ex.: email@email.com" maxlength="2079">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Telefone">Telefone:</label>
+                    <input required="required" type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2020-3030" maxlength="15">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#beneficiariosModal">Beneficiários</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-sm btn-success">Salvar</button>
+                    @Html.ActionLink("Voltar", "Index", "Cliente", new { }, new { @class = "btn btn-sm btn-danger" })
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+    <!-- Modal para Beneficiários -->
+    @*<div class="modal fade" id="beneficiariosModal" tabindex="-1" role="dialog" aria-labelledby="beneficiariosModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="beneficiariosModalLabel">Beneficiários</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="BeneficiarioCPF">CPF:</label>
+                                    <input type="text" class="form-control" id="BeneficiarioCPF" placeholder="999.999.999-99" maxlength="14">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="BeneficiarioNome">Nome do Beneficiário:</label>
+                                    <input type="text" class="form-control" id="BeneficiarioNome" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label>&nbsp;</label>
+                                <button type="button" class="btn btn-sm btn-success" id="addBeneficiarioBtn">Incluir</button>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>João da Silva</label>
+
+
+                        <hr>
+
+                        <div id="beneficiariosList">
+
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex align-items-center">
+
+                                    <button type="button" class="btn btn-sm btn-primary mr-1">Alterar</button>
+                                    <button type="button" class="btn btn-sm btn-primary">Excluir</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4 d-flex align-items-center">
-                            <!-- Colocar os botões na mesma linha com d-flex -->
-                            <button type="button" class="btn btn-sm btn-primary mr-1">Alterar</button>
-                            <button type="button" class="btn btn-sm btn-primary">Excluir</button>
-                        </div>
-                    </div>
-                </div>
 
 
 
-                <!-- Linha de Separação -->
-                <hr>
 
-                <!-- Segunda Linha Mocada de Exemplo -->
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>987.654.321-00</label>
-                        </div>
+                        <hr>
+
+
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Maria Oliveira</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex align-items-center">
-                        <button type="button" class="btn btn-sm btn-primary editBeneficiarioBtn mr-1">Alterar</button>
-                        <button type="button" class="btn btn-sm btn-primary deleteBeneficiarioBtn">Excluir</button>
-                    </div>
+
                 </div>
             </div>
-            
+        </div>*@
+
+    <!-- Modal para Beneficiários -->
+    <div class="modal fade" id="beneficiariosModal" tabindex="-1" role="dialog" aria-labelledby="beneficiariosModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="beneficiariosModalLabel">Beneficiários</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Linha para CPF, Nome do Beneficiário e Botão Incluir -->
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="BeneficiarioCPF">CPF:</label>
+                                <input type="text" class="form-control" id="BeneficiarioCPF" placeholder="999.999.999-99" maxlength="14">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="BeneficiarioNome">Nome do Beneficiário:</label>
+                                <input type="text" class="form-control" id="BeneficiarioNome" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label>&nbsp;</label>
+                            <button type="button" class="btn btn-sm btn-success" id="addBeneficiarioBtn">Incluir</button>
+                        </div>
+                    </div>
+
+                    <!-- Linha de Separação -->
+                    <hr>
+
+                    <div id="beneficiariosList">
+                        <!-- Lista de Beneficiários será gerada dinamicamente pelo JavaScript -->
+                    </div>
+
+                    <!-- Linha de Separação -->
+                    <hr>
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+    <!-- Inclua seus scripts JavaScript aqui, no final do body -->
+    <script src="/Scripts/Beneficiarios/FI.Modal.js"></script>
+    <!-- Inclua outras bibliotecas JavaScript necessárias, como jQuery ou Bootstrap se necessário -->
+</body>
+</html>
