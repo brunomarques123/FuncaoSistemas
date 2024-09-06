@@ -1,49 +1,38 @@
 $(document).ready(function () {
-    // Código para inicializar o modal e formulário de inclusão de beneficiários
     $('#addBeneficiarioBtn').click(function () {
-        let cpf = $('#BeneficiarioCPF').val();
-        let nome = $('#BeneficiarioNome').val();
+        var cpf = $('#BeneficiarioCPF').val();
+        var nome = $('#BeneficiarioNome').val();
+        var clienteId = $('clienteIdHidden').val();
 
+        console.log('clienteIdHidden: ' + clienteId);
+
+        // Verifica se os campos não estão vazios
         if (cpf && nome) {
             $.ajax({
-                url: urlBeneficiarioPost,
-                method: "POST",
+                url: '/Cliente/Incluir', // Ajuste para o seu endpoint
+                type: 'POST',
                 data: {
-                    "CPF": cpf,
-                    "Nome": nome,
-                    "IdCliente": idCliente // Supondo que o ID do cliente está disponível em uma variável
+                    CPF: cpf,
+                    Nome: nome
                 },
-                error: function (r) {
-                    if (r.status == 400)
-                        ModalDialog("Ocorreu um erro", r.responseJSON);
-                    else if (r.status == 500)
-                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
+                success: function (response) {
+                    if (response.Result === 'OK') {
+                        alert('Beneficiário incluído com sucesso');
+                        // Adicione o beneficiário à lista se necessário
+                        $('#beneficiariosList').append('<div>' + nome + ' (' + cpf + ')</div>');
+                        // Limpe os campos do modal
+                        $('#BeneficiarioCPF').val('');
+                        $('#BeneficiarioNome').val('');
+                    } else {
+                        alert('Erro: ' + response.Message);
+                    }
                 },
-                success: function (r) {
-                    ModalDialog("Sucesso!", r);
-                    $('#beneficiariosList').append(
-                        '<div class="row mb-3">' +
-                        '    <div class="col-md-4">' +
-                        '        <div class="form-group">' +
-                        '            <label>' + cpf + '</label>' +
-                        '        </div>' +
-                        '    </div>' +
-                        '    <div class="col-md-4">' +
-                        '        <div class="form-group">' +
-                        '            <label>' + nome + '</label>' +
-                        '        </div>' +
-                        '    </div>' +
-                        '    <div class="col-md-4 d-flex align-items-center">' +
-                        '        <button type="button" class="btn btn-sm btn-primary mr-1">Alterar</button>' +
-                        '        <button type="button" class="btn btn-sm btn-primary">Excluir</button>' +
-                        '    </div>' +
-                        '</div>'
-                    );
-                    $('#beneficiariosModal').modal('hide');
+                error: function () {
+                    alert('Ocorreu um erro ao incluir o beneficiário.');
                 }
             });
         } else {
-            ModalDialog("Aviso", "Por favor, preencha todos os campos.");
+            alert('Por favor, preencha todos os campos.');
         }
     });
 });

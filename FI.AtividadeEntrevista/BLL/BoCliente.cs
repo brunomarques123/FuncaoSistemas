@@ -86,44 +86,7 @@ namespace FI.AtividadeEntrevista.BLL
         {
             DAL.DaoCliente cli = new DAL.DaoCliente();
             return cli.VerificarExistencia(CPF);
-        }
-
-        public long IncluirBeneficiario(DML.Beneficiario beneficiario)
-        {
-            DAL.DaoBeneficiario daoBeneficiario = new DAL.DaoBeneficiario();
-
-            // Verificar se o CPF do beneficiário já existe, se necessário.
-            if (VerificarExistenciaBeneficiario(beneficiario.CPF))
-            {
-                throw new Exception("CPF do beneficiário já cadastrado.");
-            }
-
-            return daoBeneficiario.Incluir(beneficiario);
-        }
-
-        public void AlterarBeneficiario(DML.Beneficiario beneficiario)
-        {
-            DAL.DaoBeneficiario daoBeneficiario = new DAL.DaoBeneficiario();
-            daoBeneficiario.Alterar(beneficiario);
-        }
-
-        public void ExcluirBeneficiario(long id)
-        {
-            DAL.DaoBeneficiario daoBeneficiario = new DAL.DaoBeneficiario();
-            daoBeneficiario.Excluir(id);
-        }
-
-        public List<DML.Beneficiario> ListarBeneficiarios()
-        {
-            DAL.DaoBeneficiario daoBeneficiario = new DAL.DaoBeneficiario();
-            return daoBeneficiario.Listar();
-        }
-
-        public bool VerificarExistenciaBeneficiario(string CPF)
-        {
-            DAL.DaoBeneficiario daoBeneficiario = new DAL.DaoBeneficiario();
-            return daoBeneficiario.VerificarExistencia(CPF);
-        }
+        }       
 
     }
 }

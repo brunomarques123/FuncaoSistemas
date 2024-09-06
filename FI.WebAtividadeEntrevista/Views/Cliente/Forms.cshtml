@@ -5,6 +5,13 @@
     <!-- Suas tags de meta, link para CSS, etc. -->
     <link rel="stylesheet" href="caminho-para-seu-css.css">
     <!-- Inclua outros recursos aqui, como bibliotecas JavaScript se necessário -->
+
+    <script type="text/javascript">
+        function abrirBeneficiariosModal(clienteId) {
+            $('@clienteIdHidden').val(clienteId);
+            $('beneficiarioModal').modal('show');
+        }
+    </script>
 </head>
 <body>
 
@@ -13,7 +20,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="Nome">Nome:</label>
-                    <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="50">
+                    <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="" maxlength="50">
                 </div>
             </div>
         </div>
@@ -21,7 +28,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Sobrenome">Sobrenome:</label>
-                    <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: da Silva" maxlength="255">
+                    <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="" maxlength="255">
                 </div>
             </div>
             <div class="col-md-6">
@@ -36,7 +43,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="CPF">CPF:</label>
-                    <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 123.456.789-10" maxlength="14">
+                    <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="" maxlength="14">
                 </div>
             </div>
         </div>
@@ -46,7 +53,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="CEP">CEP:</label>
-                    <input required="required" type="text" class="form-control" id="CEP" name="CEP" placeholder="Ex.: 01011-100" maxlength="9">
+                    <input required="required" type="text" class="form-control" id="CEP" name="CEP" placeholder="" maxlength="9">
                 </div>
             </div>
             <div class="col-md-4">
@@ -92,7 +99,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>&nbsp;</label>
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#beneficiariosModal">Beneficiários</button>
+                    @*<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#beneficiariosModal"
+        onclick="abrirBeneficiariosModal(@Model.Id)">Beneficiários</button>*@
+
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                            onclick="abrirBeneficiariosModal(@Model.Id)">
+                        Beneficiários
+                    </button>
                 </div>
             </div>
         </div>
@@ -189,6 +202,8 @@
                 </div>
                 <div class="modal-body">
 
+                    <input type="hidden" id="clienteIdHidden" />
+
                     <!-- Linha para CPF, Nome do Beneficiário e Botão Incluir -->
                     <div class="row">
                         <div class="col-md-5">
@@ -227,5 +242,5 @@
     <!-- Inclua seus scripts JavaScript aqui, no final do body -->
     <script src="/Scripts/Beneficiarios/FI.Modal.js"></script>
     <!-- Inclua outras bibliotecas JavaScript necessárias, como jQuery ou Bootstrap se necessário -->
-</body>
+    </body>
 </html>

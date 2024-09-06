@@ -63,7 +63,7 @@ namespace FI.AtividadeEntrevista.DAL
         /// Lista todos os beneficiários
         /// </summary>
         /// <returns>Lista de beneficiários</returns>
-        internal List<DML.Beneficiario> Listar()
+        internal List<DML.Beneficiario> Listar(long idCliente)
         {
             List<DML.Beneficiario> beneficiarios = new List<DML.Beneficiario>();
 

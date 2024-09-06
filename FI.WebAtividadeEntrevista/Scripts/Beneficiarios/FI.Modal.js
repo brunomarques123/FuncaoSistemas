@@ -1,12 +1,9 @@
-let beneficiarios = [
-    { id: 1, cpf: '123.456.789-10', nome: 'João da Silva' },
-    { id: 2, cpf: '987.654.321-00', nome: 'Maria Oliveira' }
-];
+let beneficiarios = null;
 
 let beneficiarioAtual = null;
 
 document.addEventListener('DOMContentLoaded', function () {
-    loadBeneficiarios();
+    //loadBeneficiarios();
 
     document.getElementById('addBeneficiarioBtn').addEventListener('click', function () {
         const cpf = document.getElementById('BeneficiarioCPF').value;
@@ -41,6 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
 function loadBeneficiarios() {
     const beneficiariosList = document.getElementById('beneficiariosList');
     beneficiariosList.innerHTML = '';
+
+    // fazer depois esse load
+    //fetch('/Beneficiario/ObterBeneficiarios')
+
 
     beneficiarios.forEach(beneficiario => {
         const row = document.createElement('div');
